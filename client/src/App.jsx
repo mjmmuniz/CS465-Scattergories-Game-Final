@@ -1,12 +1,15 @@
-import { useState } from 'react'
-import './App.css'
+import { useState, useEffect } from 'react';
+import './styles/App.css';
+import { socket } from './Socket';
 
 function App() {
-  const [count, setCount] = useState(0)
+  useEffect(() => {
+    socket.on('connect', () => {
+      console.log('connected! socket id:', socket.id);
+    });
+  }, []);
 
-  return (
-    <h1>Hi</h1>
-  )
+  return <div>Scattergories Client</div>
 }
 
-export default App
+export default App;
