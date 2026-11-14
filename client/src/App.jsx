@@ -4,13 +4,13 @@ import { socket } from './Socket';
 import Home from './views/Home';
 
 function App() {
-  useEffect(() => {
-    socket.on('connect', () => {
-      console.log('connected! socket id:', socket.id);
-    });
-  }, []);
 
-  return <Home />; 
+  return (
+    <div>
+    <h1>Scattergories</h1>
+    <Home />
+    </div>
+  ); 
 }
 
 export default App;
