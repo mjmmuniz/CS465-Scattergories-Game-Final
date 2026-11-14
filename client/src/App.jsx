@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import './styles/App.css';
 import { socket } from './Socket';
+import Home from './views/Home';
 
 function App() {
   useEffect(() => {
@@ -9,7 +10,7 @@ function App() {
     });
   }, []);
 
-  return <div>Scattergories Client</div>
+  return <Home />; 
 }
 
 export default App;
