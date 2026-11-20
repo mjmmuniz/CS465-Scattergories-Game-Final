@@ -1,0 +1,103 @@
+/* specifically for voting page */
+.voting-page {
+  max-width: 460px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  font-family: Arial, sans-serif;
+}
+
+.voting-page h1 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+.voting-subtitle {
+  margin: 0.25rem 0 1.25rem;
+  color: #777;
+  font-size: 0.85rem;
+}
+
+.category-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+}
+
+.category-number {
+  background: #6d3fe6;
+  color: #fff;
+  border-radius: 6px;
+  padding: 0.1rem 0.45rem;
+  font-size: 0.8rem;
+}
+
+.vote-card {
+  padding: 0.9rem;
+  margin-bottom: 0.9rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.vote-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.vote-word {
+  margin: 0;
+  font-weight: bold;
+}
+.vote-user {
+  margin: 0.15rem 0 0;
+  color: #888;
+  font-size: 0.75rem;
+}
+
+.vote-badge {
+  border: 1px solid #ccc;
+  border-radius: 999px;
+  padding: 0.1rem 0.5rem;
+  font-size: 0.7rem;
+}
+.vote-badge.valid {
+  border-color: #2e9e5b;
+  color: #2e9e5b;
+}
+.vote-badge.invalid {
+  border-color: #d64545;
+  color: #d64545;
+}
+
+.vote-buttons {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.vote-buttons button {
+  flex: 1;
+  padding: 0.4rem;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.vote-buttons button.selected {
+  background: #6d3fe6;
+  border-color: #6d3fe6;
+  color: #fff;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 10px;
+  background: #6d3fe6;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
