@@ -18,10 +18,76 @@ class roomManager {
 
         return code;
     }
-
+    
+    // create and return room 
     createRoom(hostSocketId, username) {
         const code = this.createCode();
+        const room = {
+            code,
+            hostId: hostSocketId,
+            phase: 'lobby',
+            letter: null,
+            categories: [],
+            players: [
+                {
+                    id: hostSocketId,
+                    username: username,
+                    isHost: true,
+                    ready: true,
+                    score: 0
+                }
+            ],
+        }
         
-        const room
+        console.log(code);
+        console.log("room created!");
+        this.rooms.set(code, room);
+        return room;
+
+    }
+
+    // return room if code exists, null otherwise
+    joinRoom(code) {
+        return (this.rooms.get(code) || null);
+    }
+
+    // add player and information to game
+    addPlayer(code, socketId, username) {
+        const room = this.joinRoom(code);
+        // if room does not exist
+        if (!room) {
+            return ('error: room not found');
+        }
+        // if room already started game
+        if (room.phase !== 'lobby') {
+            return ('error: game already started');
+        }
+
+        // object for player information
+        const player = {
+            id: socketId,
+            username: username,
+            isHost: socketId === room.hostId,
+            isReady: false,
+            score: 0 
+        };
+
+        room.players.push(player);
+        return {room, player};
+    }
+
+    // ready up to start game
+    readyUp(code) {
+        const room = this.joinRoom(code);
+        
+        //if room does not exist
+        if (!room) {
+            return ('error : room not found');
+        }
+
+        player.isReady = !player.isReady;
+        return {room, player};
     }
 }
+
+module.exports = new roomManager();
