@@ -1,3 +1,5 @@
+// manages rooms data structure
+
 const MIN_CODE = 1000;
 const MAX_CODE = 9999;
 

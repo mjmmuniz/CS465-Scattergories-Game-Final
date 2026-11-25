@@ -1,3 +1,7 @@
+// listens for network triggers from clients
+// calls roomManager.js methods to update the state
+// sends responses back over the network
+
 const roomManager = require('../state/roomManager');
 
 module.exports = function manageLobby(io, socket) {
