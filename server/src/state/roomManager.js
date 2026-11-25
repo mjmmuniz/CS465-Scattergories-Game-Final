@@ -11,11 +11,14 @@ class roomManager {
         let code = 0;       // code for game
         let attempts = 0;   // attempts to generate code
             
+        // generate number between 1000-9999
         do {
             code = Math.floor(Math.random() * (MAX_CODE - MIN_CODE + 1)) + MIN_CODE;
             attempts += 1;
         } while (this.rooms.has(code) && attempts < 25);
 
+        // stringify the number code
+        code = String(code);
         return code;
     }
     
@@ -43,7 +46,6 @@ class roomManager {
         console.log("room created!");
         this.rooms.set(code, room);
         return room;
-
     }
 
     // return room if code exists, null otherwise
@@ -56,11 +58,11 @@ class roomManager {
         const room = this.joinRoom(code);
         // if room does not exist
         if (!room) {
-            return ('error: room not found');
+            return { error: 'room not found' };
         }
         // if room already started game
         if (room.phase !== 'lobby') {
-            return ('error: game already started');
+            return { error: 'game already started' };
         }
 
         // object for player information
@@ -82,7 +84,12 @@ class roomManager {
         
         //if room does not exist
         if (!room) {
-            return ('error : room not found');
+            return { error : 'room not found' };
+        }
+
+        const player = room.players.find((p) => p.id === socketId);
+        if (!player) {
+            return { error: 'player not in room' };
         }
 
         player.isReady = !player.isReady;
